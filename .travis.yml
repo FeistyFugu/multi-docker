@@ -1,0 +1,18 @@
+language: generic 
+sudo: required
+services:
+    - docker
+before_install:
+    - docker build -t feistyfugu/react-test -f ./client/Dockerfile.dev ./client
+script:
+    - docker run -e CI=true feistyfugu/react-test npm test
+after_success:
+    - docker build -t feistyfugu/multi-client ./client
+    - docker build -t feistyfugu/multi-server ./server
+    - docker build -t feistyfugu/multi-worker ./worker
+    - docker build -t feistyfugu/multi-nginx ./nginx
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+    - docker push feistyfugu/multi-client
+    - docker push feistyfugu/multi-server
+    - docker push feistyfugu/multi-worker
+    - docker push feistyfugu/multi-nginx
