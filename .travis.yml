@@ -20,7 +20,7 @@ deploy:
     edge: true
     provider: elsaticbeanstalk
     region: us-east-2
-    app: multi-docker
+    app: docker-multi
     env: DockerMulti-env
     bucket_name: elasticbeanstalk-us-east-2-748266017134
     bucket_path: docker-multi
