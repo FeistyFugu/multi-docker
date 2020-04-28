@@ -17,6 +17,7 @@ after_success:
     - docker push feistyfugu/multi-worker
     - docker push feistyfugu/multi-nginx
 deploy:
+    edge: true
     provider: elsaticbeanstalk
     region: us-east-2
     app: multi-docker
