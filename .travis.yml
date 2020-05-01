@@ -16,15 +16,15 @@ after_success:
     - docker push feistyfugu/multi-server
     - docker push feistyfugu/multi-worker
     - docker push feistyfugu/multi-nginx
-deploy:
-    edge: true
-    provider: elsaticbeanstalk
-    region: us-east-2
-    app: docker-multi
-    env: DockerMulti-env
-    bucket_name: elasticbeanstalk-us-east-2-748266017134
-    bucket_path: docker-multi
-    on:
-        branch: master
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: $AWS_SECRET_KEY
+# deploy:
+#     edge: true
+#     provider: elsaticbeanstalk
+#     region: us-east-2
+#     app: docker-multi
+#     env: DockerMulti-env
+#     bucket_name: elasticbeanstalk-us-east-2-748266017134
+#     bucket_path: docker-multi
+#     on:
+#         branch: master
+#     access_key_id: $AWS_ACCESS_KEY
+#     secret_access_key: $AWS_SECRET_KEY
